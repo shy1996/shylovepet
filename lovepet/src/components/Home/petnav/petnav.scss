@@ -1,0 +1,40 @@
+@import './../../../lib/reset.scss';
+
+.petbanner_wrap{
+    @include background-color(pink);
+    @include rect(100%,186px);
+    @include overflow(hidden);
+    .petbanner_box{
+        @inclue text-align(center);
+        @include background-color(#fff);
+        @include rect(100%,186px);
+        @include justify-content(center);
+        .petbanner_col{
+            height: 100%;
+            @include flexbox();
+            @include justify-content(center);
+            @include text-align(center);
+            .ant-card-bordered{
+                padding-top: 15px;
+                @include box-sizing(border-box);
+                border: 0;
+                .ant-card-cover{
+                    @include rect(100%, 120px);
+                    img{
+                        @include rect(100%, 100%);
+                    }
+                }
+                .ant-card-cover:hover img{
+                    @include transform(scale(1.1));
+                    @include transition(all 0.5s);
+                    @include border(0);
+                }
+                .ant-card-body{
+                    padding-top: 20px;
+                    @include box-sizing(border-box);
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,57 @@
+@import './../../lib/reset.scss';
+
+.footer_wrap{
+    @include rect(100%, 260px);
+    @include background-color(#fff);
+    border-top: 1px solid #eee;
+    .footertop{
+        padding-bottom: 30px;
+        @include rect(100%, 153px);
+        .footerlogo{
+            @include text-color(limegreen);
+            @include font-size(21px);
+            @include line-height(60px);
+            @include text-align(center);
+            span{
+                margin-right: 10px;
+            }
+        }
+        .footertext{
+            @include flexbox();
+            @include flex-direction(column);
+            span{
+                @include text-color(#333);
+                @include font-size(13px);
+                @include line-height(22px);
+                course:point;
+            }
+            .footerwechat{
+                @include rect(100px, 100px);
+                @include border-radius(0);
+            }
+        }
+        .footererwei{
+            span{
+                @include text-align(left);
+                @include line-height(26px);
+            }
+        }
+    }
+    .footerdetail{
+        border-top: 1px solid #eee;
+        @include flexbox();
+        @include flex-direction(column);
+        @include text-align(center);
+        p:nth-child(1){
+            @include line-height(40px);
+            @include font-size(12px);
+        }
+        p:nth-child(2){
+            @include line-height(20px);
+            @include font-size(12px);
+        }
+    }
+
+}
+
+

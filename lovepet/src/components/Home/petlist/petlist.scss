@@ -1,0 +1,70 @@
+@import './../../../lib/reset.scss';
+
+.petlist_wrap{
+    @include rect(100%,auto);
+    @include overflow(hidden);
+    h2{
+        @include font-size(40px);
+        @include text-color(#f85f83);
+        @include text-align(center);
+        @include line-height(60px);
+        margin-top: 30px;
+    }
+    span{
+        display: block;
+        text-align: center;
+        line-height: 30px;
+        font-weight: 900;
+        @include font-size(18px);
+        margin-bottom: 20px;
+    }
+    .petlist_box{
+        @inclue text-align(center);
+        @include rect(100%,auto);
+        @include justify-content(center);
+        .petlist_col{
+            height: 300px;
+            @include flexbox();
+            @include justify-content(center);
+            @include text-align(center);
+            margin: 0 30px;
+            .ant-card-cover{
+                img{
+                    @include rect(100%, 184px);
+                    
+                }
+            }
+        }
+    }
+}
+
+.swiper-container{
+    @include rect(90%,330px);
+    .swiper-wrapper{
+        .swiper-slide{
+            .petlist_box{
+                div:nth-child(1){
+                    @include rect(100%,250px);
+                    img{
+                        @include rect(100%,250px);
+                    }
+                }
+                div:nth-child(2){
+                    padding: 20px 0;
+                    @include text-align(center);
+                    @include background-color(#fff);
+                    @incldue box-sizing(border-box);
+                }
+            }
+            .petlist_box:hover {
+                
+            }
+        }
+    }
+}
+.downdrup{
+    margin: 17px 0;
+    @include text-align(center);
+    @include font-size(22px);
+    @include text-color(#666);
+}

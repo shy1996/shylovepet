@@ -1,0 +1,23 @@
+@import "./lib/reset.scss";
+
+
+html, body, #root{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow: auto !important;
+  @include background-color(#eee);
+  a{
+      color: #666;
+  }
+  .container{
+      .ant-layout-header{
+          @include background-color(#fff);
+          @include rect(100%, 98px);
+          .ant-row-flex{
+              @include text-align(center);
+              @include line-height(98px);
+          }
+      }
+  }
+}

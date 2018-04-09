@@ -1,0 +1,57 @@
+@import "./../../lib/reset.scss";
+
+.petdetail_wrap{
+    @incldue rect(100%,auto);
+    padding: 20px 130px;
+    box-sizing: border-box;
+    @include background-color(#fff);
+    border-top: 1px solid #eee;
+    .petdetail_con{
+        .petdetail_main{
+            @include flexbox();
+            @include justify-content(space-between);
+            .petdetail_img{
+                @include rect(30%,300px);
+                border: 1px solid #fe843145;
+                padding: 3px;
+                img{
+                    @include rect(100%,100%);
+                }
+            }
+            .petdetail_list{
+                @include rect(68%,300px);
+                padding: 10px;
+                @include box-sizing(border-box);
+                h2{
+                    @include font-size(30px);
+                    @include line-height(56px);
+                    height: 56px;
+                    background: url(/images/smtit.png) no-repeat;
+                    text-indent: 50px;
+                }
+                p{
+                    @include font-size(14px);
+                    @include line-height(22px);
+                    margin-top: 10px;
+                }
+                .petdetail_jiben{
+                    @include font-size(20px);
+                    @include line-height(36px);
+                    margin-top: 10px;
+                    h4{
+                        background: url(/images/ico.png) no-repeat 0 -588px;
+                        text-indent: 30px;
+                    }
+                    p{
+                        @include flexbox();
+                        @include justify-content(space-between);
+                        span{
+                            @include flex();
+                            @include text-align(left);                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

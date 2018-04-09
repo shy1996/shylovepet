@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+  -->
+  <link rel="stylesheet" href="/stylesheets/skin-blue.min.css">
+
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+      <div class="wrapper">
+      
+        <!-- Main Header -->
+        <% include header.ejs %>
+        <!-- Left side column. contains the logo and sidebar -->
+        <% include mune.ejs %>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+              <h2>个人中心</h2>
+            <div class="box box-primary">
+                <div class="box-header">
+                  <i class="ion ion-clipboard"></i>    
+                  <h3 class="box-title">待办事项列表</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <ul class="todo-list">
+                    <li>
+                      <!-- drag handle -->
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>
+                      <!-- checkbox -->
+                      <input type="checkbox" value="">
+                      <!-- todo text -->
+                      <span class="text">设计一个很好的主题</span>
+                      <!-- Emphasis label -->
+                      <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 分钟</small>
+                      <!-- General tools such as edit or delete-->
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>
+                      <input type="checkbox" value="">
+                      <span class="text">使主题反应快速</span>
+                      <small class="label label-info"><i class="fa fa-clock-o"></i> 4 小时</small>
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>
+                      <input type="checkbox" value="">
+                      <span class="text">让主题闪耀如星星</span>
+                      <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 天</small>
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>
+                      <input type="checkbox" value="">
+                      <span class="text">让主题闪耀如星星</span>
+                      <small class="label label-success"><i class="fa fa-clock-o"></i> 3 天</small>
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>
+                      <input type="checkbox" value="">
+                      <span class="text"> 检查您的邮件和通知</span>
+                      <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 周</small>
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+                    <li>
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>
+                      <input type="checkbox" value="">
+                      <span class="text">让主题闪耀如星星</span>
+                      <small class="label label-default"><i class="fa fa-clock-o"></i> 1 月</small>
+                      <div class="tools">
+                        <i class="fa fa-edit"></i>
+                        <i class="fa fa-trash-o"></i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer clearfix no-border">
+                  <button type="button" class="btn btn-default pull-right" onclick="addworks()"><i class="fa fa-plus"></i> 添加项</button>
+                </div>
+              </div>
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+      
+        <!-- Main Footer -->
+        <footer class="main-footer">
+          <!-- To the right -->
+          <div class="pull-right hidden-xs">
+            Anything you want
+          </div>
+          <!-- Default to the left -->
+          <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        </footer>
+      
+        <!-- Control Sidebar -->
+        <% include active.ejs %>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+      </div>
+      <!-- ./wrapper -->
+      
+      <!-- REQUIRED JS SCRIPTS -->
+      
+      <!-- jQuery 2.2.3 -->
+      <script src="/javascripts/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+      <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="/lib/admin-lte/dist/js/app.min.js"></script>
+      
+      <script>
+          function addworks(){
+           var li=  document.createElement("li");
+           var aul= document.getElementsByClassName("todo-list")[0];
+           li.innerHTML = `
+                          <span class="handle">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <i class="fa fa-ellipsis-v"></i>
+                          </span>                    
+                            <input type="checkbox" value="">                  
+                            <span class="text">设计一个很好的主题</span>                   
+                            <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 分钟</small>
+                             <div class="tools">
+                            <i class="fa fa-edit"></i>
+                             <i class="fa fa-trash-o"></i>
+                        </div>`; 
+           aul.appendChild(li);   
+          }
+      </script>
+      <!-- Optionally, you can add Slimscroll and FastClick plugins.
+           Both of these plugins are recommended to enhance the
+           user experience. Slimscroll is required when using the
+           fixed layout. -->
+      </body>
+</html>

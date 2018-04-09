@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+  -->
+  <link rel="stylesheet" href="/stylesheets/skin-blue.min.css">
+
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+      <div class="wrapper">
+      
+        <!-- Main Header -->
+        <% include header.ejs %>
+        <!-- Left side column. contains the logo and sidebar -->
+        <% include mune.ejs %>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title"><%= bannerStr %>banner列表</h3>
+                <button class="btn btn-sm btn-success" onclick="toAddBanner('<%= bannerType %>')"><span class="glyphicon glyphicon-plus"></span> 添加</button>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table class="table table-bordered">
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th style="width: 100px">ID</th>                  
+                    <th style="width: 100px">图片</th>
+                    <th style="width: 100px">链接</th>
+                    <th style="width: 40px">操作</th>
+                  </tr>
+                  <% for(var i=0;i<result.length;i++){ %>
+                    <tr>
+                      <td><%= i+1 %>.</td>
+                      <td><%= result[i].id  %></td>
+                      <td>
+                          <img style="width:100px" src="<%= result[i].bannerImg  %>"/>
+                      </td>
+                      <td><%= result[i].bannerSrc  %></td>
+                      <td>
+                          <button class="btn btn-xs btn-warning" onclick = "updateBanner('<%- result[i].id %>','<%= bannerType %>')">
+                            <span class="glyphicon glyphicon-edit"></span>
+                            编辑
+                          </button>
+                          <button class="btn btn-xs btn-danger" onclick = "deleteBanner('<%- result[i].id %>','<%= bannerType %>')">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            删除
+                          </button>
+                        </td>
+                    </tr>                          
+                  <% } %>
+                </table>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                  <li><a href="#">&laquo;</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="breadcrumb">
+                <button class="btn btn-sm btn-default pull-right" > 导入数据</button>
+                <button class="btn btn-sm btn-info pull-right" > 导出数据</button>
+            </div>
+          </section>
+      
+          <!-- Main content -->
+          <section class="content">
+      
+            <!-- Your Page Content Here -->
+      
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+      
+        <!-- Main Footer -->
+        <footer class="main-footer">
+          <!-- To the right -->
+          <div class="pull-right hidden-xs">
+            Anything you want
+          </div>
+          <!-- Default to the left -->
+          <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        </footer>
+      
+        <!-- Control Sidebar -->
+        <% include active.ejs %>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+      </div>
+      <!-- ./wrapper -->
+      
+      <!-- REQUIRED JS SCRIPTS -->
+      
+      <!-- jQuery 2.2.3 -->
+      <script src="/javascripts/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+      <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="/lib/admin-lte/dist/js/app.min.js"></script>
+      
+      <!-- Optionally, you can add Slimscroll and FastClick plugins.
+           Both of these plugins are recommended to enhance the
+           user experience. Slimscroll is required when using the
+           fixed layout. -->
+      <script>
+          function toAddBanner(bannerType){
+            window.location.href = "/banner/AddBanner?bannerType="+bannerType;
+          }
+          function updateBanner(id,bannerType){
+            window.location.href = "/banner/updateBanner?bannerType="+bannerType+"&id="+id;
+          }
+          function deleteBanner(id,bannerType){
+            window.location.href = "/banner/deleteBanner?bannerType="+bannerType+"&id="+id;
+          }
+      </script>
+      </body>
+</html>

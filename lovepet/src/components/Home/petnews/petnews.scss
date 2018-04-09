@@ -1,0 +1,72 @@
+@import './../../../lib/reset.scss';
+
+.petlist_wrap{
+    @include rect(100%,auto);
+    @include overflow(hidden);
+    h2{
+        @include font-size(40px);
+        @include text-color(#f85f83);
+        @include text-align(center);
+        @include line-height(60px);
+        margin-top: 30px;
+    }
+    span{
+        display: block;
+        text-align: center;
+        line-height: 30px;
+        font-weight: 900;
+        @include font-size(18px);
+        margin-bottom: 20px;
+    }
+    .petlist_box{
+        @inclue text-align(center);
+        @include rect(100%,auto);
+        @include justify-content(center);
+        .petlist_col{
+            height: 300px;
+            position: relative;
+            @include flexbox();
+            @include justify-content(center);
+            @include text-align(center);
+            margin: 0 20px;
+            .hoverbox{
+                position: absolute;
+                transition: all 0.7s;
+                @include background-color(goldenrod);
+                @include rect(227px,0);
+                opacity: 0.3;
+            }
+            .peterweima{
+                position: absolute;
+                z-index: 20;
+                @include rect(150px,150px);
+                padding-top: 50px;
+                img{
+                    @include rect(150px,150px);
+                    opacity: 0;
+                    transition: all 1s;
+                }
+            }
+            .ant-card-cover{
+                img{
+                    @include rect(100%, 184px);
+                }
+            }
+        }
+        .petlist_col:hover .hoverbox{
+            @include rect(227px,300px);
+            z-index: 10;
+            opacity: 0.3;
+        }
+        .petlist_col:hover .peterweima>img{
+            opacity: 0.7;
+        }
+    }
+}
+
+.downdrup{
+    margin: 17px 0;
+    @include text-align(center);
+    @include font-size(22px);
+    @include text-color(#666);
+}

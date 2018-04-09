@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <!--防盗链，可以用别人网站的图片之类的资源-->
+    <meta name="referrer" content="never">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon1.ico">
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script> 
+		<script> 
+		if ('addEventListener' in document) {
+		    document.addEventListener('DOMContentLoaded', function() {
+		        FastClick.attach(document.body);
+		    }, false);
+		}
+		if(!window.Promise) {
+		document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+
+		    '>'+'<'+'/'+'script>');
+		} 
+		</script>
+		<link rel="stylesheet" type="text/css" href="swiper-4.2.0.min.css"/>
+    <script src="jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="swiper-4.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <title>爱在小窝</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+
+</html>

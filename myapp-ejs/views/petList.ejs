@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+  -->
+    <link rel="stylesheet" href="/stylesheets/skin-blue.min.css">
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+      <% include header.ejs %>
+
+      <% include mune.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Your Page Content Here -->
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+                <%= petListStr %>列表管理   
+              <button class="btn btn-sm btn-success" onclick = " addPet('<%= petListType %>')"><span class="glyphicon glyphicon-plus" ></span> 添加</button>
+            </h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table class="table table-bordered">
+              <tr>
+                <th style="width: 10px">#</th>
+                <th>图片</th>
+                <th>宠物ID</th>
+                <th>现主人</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>城市地区</th>
+                <th>领养状态</th>
+                <th>简介</th>
+                <th>操作</th>
+              </tr>
+              <% for(var i = 0; i < result.length; i++) { %>
+              <tr>
+                <td><%= i+1 %></td>
+                <td>
+                  <img src="<%= result[i].imgUrl %>" alt="" style="width: 40px;">
+                </td>
+                <td><%= result[i].petID %></td>
+                <td><%= result[i].owner %></td>
+                <td><%= result[i].age %></td>
+                <td><%= result[i].sex %></td>
+                <td><%= result[i].area %></td>
+                <td><%= result[i].status %></td>
+                <td><%- result[i].editor %></td>
+                <td>                   
+                  <button class="btn btn-xs btn-warning" onclick = "updatePet('<%= result[i].petID %>','<%=  result[i].petListType %>')">
+                    <span class="glyphicon glyphicon-edit"></span>
+                    编辑
+                  </button>
+                 
+                  <button class="btn btn-xs btn-danger" onclick = " deletePet('<%= result[i].petID %>','<%=  result[i].petListType %>')">
+                    <span class="glyphicon glyphicon-trash"></span>
+                    删除
+                  </button>
+                </td>
+              </tr>
+              <% } %>
+
+            </table>
+          </div>
+
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+      </footer>
+    
+      <!-- Control Sidebar -->
+      <% include active.ejs %>
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  </body>
+  <script src="/javascripts/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+  <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+  <script src="/lib/admin-lte/dist/js/app.min.js"></script>
+  <script>
+    //添加宠物事件
+    function addPet(petListType) {
+        window.location.href = "/petList/addPet?petListType="+petListType;
+    }
+
+    //删除宠物事件
+    function deletePet(petID,petListType) {
+        window.location.href = "/petList/deletePet?petID="+petID+"&petListType="+petListType;
+    }
+
+    //编辑宠物事件
+    function updatePet(petID,petListType) {
+        window.location.href = "/petList/updatePet?petID="+petID+"&petListType="+petListType;
+    }
+
+  </script>
+
+</html>

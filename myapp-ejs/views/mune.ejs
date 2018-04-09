@@ -1,0 +1,131 @@
+<aside class="main-sidebar">
+      
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="/images/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Alexander Pierce</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+        </div>
+      </div>
+
+      <!-- search form (Optional) -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu">
+        <li class="header">HEADER</li>
+        <!-- Optionally, you can add icons to the links -->
+        <li class="active"><a href="/"><i class="fa fa-link"></i> <span>首页</span></a></li>
+        <li class="treeview">
+          <a href="#">
+              <i class="fa fa-share"></i>
+              <span>宠物列表</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+              <li>
+                  <a href="#">
+                      <i class="fa fa-share"></i>
+                      <span>犬类列表</span>
+                      <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li><a href="/petList?petListType=0"><i class="fa fa-circle-o"></i> 牧羊犬</a></li>
+                      <li><a href="/petList?petListType=1"><i class="fa fa-circle-o"></i> 金毛</a></li>
+                      <li><a href="/petList?petListType=2"><i class="fa fa-circle-o"></i> 哈士奇</a></li>
+                      <li><a href="/petList?petListType=3"><i class="fa fa-circle-o"></i> 拉布拉多犬</a></li>
+                      <li><a href="/petList?petListType=4"><i class="fa fa-circle-o"></i> 吉娃娃</a></li>
+                      <li><a href="/petList?petListType=5"><i class="fa fa-circle-o"></i> 博美</a></li>
+                      <li><a href="/petList?petListType=6"><i class="fa fa-circle-o"></i> 松狮</a></li>
+                      <li><a href="/petList?petListType=7"><i class="fa fa-circle-o"></i> 斗牛梗</a></li>
+                      <li><a href="/petList?petListType=8"><i class="fa fa-circle-o"></i> 阿拉斯加</a></li>
+                      <li><a href="/petList?petListType=9"><i class="fa fa-circle-o"></i> 泰迪</a></li>
+                      <li><a href="/petList?petListType=10"><i class="fa fa-circle-o"></i> 其他犬种</a></li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="#">
+                      <i class="fa fa-share"></i>
+                      <span>猫类列表</span>
+                      <span class="pull-right-container">
+                          <i class="fa fa-angle-left pull-right"></i>
+                      </span>
+                  </a>
+                  <ul class="treeview-menu">
+                      <li><a href="/petList?petListType=11"><i class="fa fa-circle-o"></i> 苏格兰摺耳猫</a></li>
+                      <li><a href="/petList?petListType=12"><i class="fa fa-circle-o"></i> 日本短尾猫</a></li>
+                      <li><a href="/petList?petListType=13"><i class="fa fa-circle-o"></i> 英国短毛猫</a></li>
+                      <li><a href="/petList?petListType=14"><i class="fa fa-circle-o"></i> 美国短毛猫</a></li>
+                      <li><a href="/petList?petListType=15"><i class="fa fa-circle-o"></i> 波斯猫</a></li>
+                      <li><a href="/petList?petListType=16"><i class="fa fa-circle-o"></i> 卷毛猫</a></li>
+                      <li><a href="/petList?petListType=17"><i class="fa fa-circle-o"></i> 布偶猫</a></li>
+                      <li><a href="/petList?petListType=18"><i class="fa fa-circle-o"></i> 加菲猫</a></li>
+                      <li><a href="/petList?petListType=19"><i class="fa fa-circle-o"></i> 缅甸猫</a></li>
+                      <li><a href="/petList?petListType=20"><i class="fa fa-circle-o"></i> 暹罗猫</a></li>
+                      <li><a href="/petList?petListType=21"><i class="fa fa-circle-o"></i> 其他猫种</a></li>
+                  </ul>
+              </li>
+          </ul>
+        </li>
+        <li class="treeview">
+            <a href="#"><i class="fa fa-link"></i> <span>商品列表</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="/list/listSort?userType=1&sortType=1&limitNum=4&pageCode=0">犬用商品</a></li>
+              <li><a href="/list/listSort?userType=2&sortType=1&limitNum=4&pageCode=0">猫用商品</a></li>
+            </ul>
+          </li>
+        <li class="treeview">
+            <a href="/users"><i class="fa fa-link"></i> <span>nav管理</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="/nav?navType=0">首页nav</a></li>
+              <li><a href="/nav?navType=1">列表nav</a></li>
+            </ul>
+          </li>
+        <li class="treeview">
+          <a href="/users"><i class="fa fa-link"></i> <span>轮播图管理</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/banner?bannerType=0">首页轮播</a></li>
+            <li><a href="/banner?bannerType=1">其他页面轮播</a></li>
+          </ul>
+        </li>
+        <li><a href="/news?limitNum=4&pageCode=1"><i class="fa fa-link"></i> <span>新闻管理</span></a></li>
+        <li><a href="/instructor"><i class="fa fa-link"></i> <span>养宠指南</span></a></li>
+        <li><a href="/customer?pageCode=0"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
+        <li><a href="/users/individual"><i class="fa fa-link"></i> <span>个人中心</span></a></li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>

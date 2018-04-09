@@ -1,0 +1,48 @@
+@import './../../../lib/reset.scss';
+
+.petlistkind_wrap{
+    @include rect(100%,auto);
+    background-color: pink;
+    .petlistkind_box{
+        @include background-color(pink);
+        .petlistkind_col{
+            @include rect(auto,320px);
+            margin: 10px 10px;
+        }
+        .ant-card-bordered{
+            @include rect(240px,320px);
+            .ant-card-cover{
+                @include rect(100%,238px);
+                img{
+                    @include rect(100%,240px);
+                }
+            }
+            .ant-card-body{
+                padding: 7px;
+                @include box-sizing(border-box);
+                @include rect(100%,80px);
+                .petkindarea{
+                    @include flexbox();
+                    @include justify-content(space-between);
+                    span:nth-child(2){
+                        color: #f66;
+                        @include font-size(13px);
+                        border: 1px solid #f66;
+                    }
+                }
+                .petkindsex{
+                    @include flexbox();
+                    @include line-height(24px);
+                    @include justify-content(space-between);
+                }
+                .petkindeditor{
+                    p{
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}

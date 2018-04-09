@@ -1,0 +1,58 @@
+@import "./../../lib/reset.scss";
+
+.petnews_wrap{
+    @include rect(100%,auto);
+    padding: 20px 130px;
+    box-sizing: border-box;
+    @include background-color(#fff);
+    border-top: 1px solid #eee;
+    .petnews_main{
+        @include rect(100%,auto);
+        @include flexbox();
+        @include justify-content(space-between);
+        .petnews_right{
+            @include rect(26%,auto);
+            .petnews_swiper{
+                @include rect(100%,auto);
+                img{
+                    @include rect(100%,auto);
+                }
+            }
+        }
+        .petnews_left{
+             @include rect(72%,auto);
+            .petnews_box{
+                margin-top:23px;
+                box-sizing: border-box;
+                @include rect(100%,130px);
+                border-bottom: 1px dashed #ddd;
+                .petnews_list{
+                    @include flexbox();
+                    .petnews_img{
+                        @include rect(195px,110px);
+                        img{
+                            @include rect(100%,100%);
+                        }
+                    }
+                    .petnews_con{
+                        margin-left: 20px;
+                        h3{
+                            @include font-size(20px);
+                            @include line-height(36px);
+                        }
+                        p:nth-of-type(1){
+                            @include font-size(14px);
+                            @include line-height(20px);
+                            margin-top: 5px;
+                        }
+                        p:nth-of-type(2){
+                            margin-top: 10px;
+                            @include flexbox();
+                            @include justify-content(space-between);
+                        }
+                    }
+                }
+            } 
+        }
+    }
+}

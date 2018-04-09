@@ -1,0 +1,65 @@
+@import "./../../lib/reset.scss";
+
+.petlistcon{
+    @include background-color(#fff);
+    border-top: 1px solid #eee;
+    padding: 30px 45px;
+    @include box-sizing(border-box);
+    @include rect(100%,auto);
+    @include flexbox();
+    @include justify-content(space-between);
+    .ant-tabs{
+        width: 153%;
+    }
+    .ant-tabs-vertical{
+        .ant-tabs-content{
+            border-left: none;
+            width: 83%;
+        }
+        .pettypetitle{
+            color: #333;
+        }
+        .ant-tabs-bar .ant-tabs-tab{
+            margin: 0 !important;
+            @include text-align(center);
+        }
+        .ant-tabs-bar{
+            @include background-color(#cce0aa52);
+            border-right: none;
+            .ant-tabs-nav-container{
+                .ant-tabs-ink-bar{
+                    @include background-color(#3c9a58);
+                }
+                .ant-tabs-tab:hover{
+                    color:#666;
+                }
+                .ant-tabs-tab-active{
+                    @include background-color(#8bdca3d4);
+                    @include text-color(#fff);
+                    border-right: none;
+                }
+                .ant-tabs-tab-active:hover{
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .petlistkind_right{
+        width: 590px;
+        margin-left: -140px;
+        @include background-color(#fdfdf6);
+        padding: 6px;
+        @include box-sizing(border-box);
+        p{
+            @include font-size(16px);
+            font-weight:900;
+            border-bottom: 2px solid #eee;
+        }
+        .ant-list-item-meta-avatar{
+            @include rect(60px,60px);
+            .ant-avatar{
+                @include rect(60px,60px);
+            }
+        }
+    }
+}

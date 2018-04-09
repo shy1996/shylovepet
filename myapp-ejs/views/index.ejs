@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta content="telephone=123456" name="format-detection" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+  -->
+  <link rel="stylesheet" href="/stylesheets/skin-blue.min.css">
+  <style>
+    body{
+      position: relative;
+    }
+    .content-wrapper{
+      background:url(/images/1.jpg) no-repeat left top;
+      background-size:100%;
+    }
+    .titlename{
+      color: #fff;
+      position:absolute;
+      /* left:32%;
+      top:-20px; */
+      left:42%;
+      top:28%;
+    }
+    .clock{
+      color: #000;
+      height:80px;
+      width:250px;
+      font-size: 30px;
+      position: absolute;
+      /* left:40%;
+      top:-25px; */
+      left:48%;
+      top:13%;
+    }
+    .datenow{
+      color: #fff;
+      position: absolute;
+      /* left:50%;
+      top:-40px; */
+      left:55%;
+      top:23%;
+    }
+    .tainqi{
+      width:231px;
+      height:128px;
+      color: #fff;
+      padding: 10px;
+      position:absolute;
+      right:10px;
+      top:50px;
+      border-radius: 10px;
+      background:#161616;
+    }
+    .tainqi>p{
+      width:231px;
+      height:30px;
+      position:absolute;
+      bottom:0;
+    }
+    .time{
+      display:inline-block;
+      line-height:15px;
+      width:70px;
+      font-size:12px;
+      color:#fff;
+    }
+    .address{
+      float: left;
+      font-size:25px;
+      margin-right: 70px;
+    }
+    .tainqi>img{
+      width:65px;
+      height:55px;
+    }
+    .tainqi>span{
+      margin-left:50px;
+      font:200 20px/30px "微软雅黑";
+    }
+  </style>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini" id="body">
+      <div class="wrapper">
+      
+        <!-- Main Header -->
+        <% include header.ejs %>
+        <!-- Left side column. contains the logo and sidebar -->     
+        <% include mune.ejs %>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+          <!-- Content Header (Page header) -->
+          <section class="content-header">
+            <h2 style="color:#fff">
+             爱在小窝
+              <small>后台管理系统</small>
+            </h2>
+          </section>
+          <div class="tainqi">
+              <img id="img" src="/"/>
+              <span></span>
+              <p>
+                <span class="address"></span>         
+                <span class="time"></span>
+              </p>
+          </div>
+          <div class="clock">
+            <img src="/images/0.png"/>
+            <img src="/images/0.png"/> :
+            <img src="/images/0.png"/>
+            <img src="/images/0.png"/> :
+            <img src="/images/0.png"/>
+            <img src="/images/0.png"/>      
+          </div>
+          <div class="datenow">
+              <span class="year"></span>年
+              <span class="month"></span>月
+              <span class="date"></span>日
+              <span class="day"></span>
+          </div> 
+          <h1 class="titlename">
+            欢迎进入<b>小窝</b>
+            <small>后台管理系统</small>
+          </h1>
+          <!-- Main content -->
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+      
+        <!-- Main Footer -->
+        <footer class="main-footer">
+          <!-- To the right -->
+          <div class="pull-right hidden-xs">
+            Anything you want
+          </div>
+          <!-- Default to the left -->
+          <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        </footer>
+      
+        <!-- Control Sidebar -->
+        <% include active.ejs %>
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+      </div>
+      <!-- ./wrapper -->
+      
+      <!-- REQUIRED JS SCRIPTS -->
+      
+      <!-- jQuery 2.2.3 -->
+      <script src="/javascripts/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+      <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="/lib/admin-lte/dist/js/app.min.js"></script>
+      <script src="/javascripts/comon.js"></script>
+      <!-- Optionally, you can add Slimscroll and FastClick plugins.
+           Both of these plugins are recommended to enhance the
+           user experience. Slimscroll is required when using the
+           fixed layout. -->
+    </body>
+</html>

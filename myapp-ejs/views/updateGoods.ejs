@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title> 
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+ 
+  <style>
+  textarea{
+    resize: none;
+  }
+  </style>
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">  
+          <section class="content-header">
+              <div class="box box-info">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">修改商品信息</h3>
+                  </div>                
+                  <form class="form-horizontal" action = "/list/updateMovieAction" method="post">
+                    <div class="box-body">
+                          <div class="form-group">
+                              <label for="inputEmail1" class="col-sm-2 control-label">名称</label>
+            
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputEmail1" name="title" value="<%= result[0].title %>">       
+                              </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail2" class="col-sm-2 control-label">类型</label>
+              
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="inputEmail2" name="type" value="<%= result[0].type %>">       
+                                </div>
+                              </div><div class="form-group">
+                                  <label for="inputEmail3" class="col-sm-2 control-label">原价</label>
+                
+                                  <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputEmail3" name="priceWap" value="<%= result[0].priceWap %>">       
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail4" class="col-sm-2 control-label">现价</label>
+                  
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control" id="inputEmail4" name="title" value="<%= result[0].price %>">       
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="inputEmail5" class="col-sm-2 control-label">tItemType</label>
+                    
+                                      <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputEmail5" name="tItemType" value="<%= result[0].tItemType %>">       
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail6" class="col-sm-2 control-label">isP4p</label>
+                      
+                                        <div class="col-sm-10">
+                                          <input type="text" class="form-control" id="inputEmail6" name="isP4p" value="<%= result[0].isP4p %>">       
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="inputEmail7" class="col-sm-2 control-label">sold</label>
+                        
+                                          <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="inputEmail7" name="sold" value="<%= result[0].sold %>">       
+                                          </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail8" class="col-sm-2 control-label">优惠(元)</label>
+                          
+                                            <div class="col-sm-10">
+                                              <input type="text" class="form-control" id="inputEmail8" name="title" value="<%= result[0].fastPostFee %>">       
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="inputEmail9" class="col-sm-2 control-label">地址</label>
+                            
+                                              <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="inputEmail9" name="title" value="<%= result[0].location %>">       
+                                              </div>
+                                            </div>
+                        <label for="inputEmail10" class="col-sm-2 control-label">店铺ID</label>
+      
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputEmail10" name="userId" value="<%= result[0].userId %>">       
+                        </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail12" class="col-sm-2 control-label">店铺类型</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail12" name="userType" value="<%= result[0].userType %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail13" class="col-sm-2 control-label">店铺名称</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail13" name="nick" value="<%= result[0].nick %>">       
+                          </div>
+                      </div>               
+                      <div class="form-group">
+                        <label for="inputEmail15" class="col-sm-2 control-label">店铺地址</label>
+      
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputEmail15" name="area" value="<%= result[0].area %>">       
+                        </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail17" class="col-sm-2 control-label">pic_path</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail17" name="pic_path" value="<%= result[0].pic_path %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail19" class="col-sm-2 control-label">分类</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail19" name="zkType" value="<%= result[0].zkType %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail20" class="col-sm-2 control-label">图片1</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail20" name="img2" value="<%= result[0].img2 %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail21" class="col-sm-2 control-label">图片2</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail21" name="wwimUrl" value="<%= result[0].wwimUrl %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail22" class="col-sm-2 control-label">图片3</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail22" name="previewUrl" value="<%= result[0].previewUrl %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail23" class="col-sm-2 control-label">图片4</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail23" name="favoriteUrl" value="<%= result[0].favoriteUrl %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail24" class="col-sm-2 control-label">originalPrice</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail24" name="originalPrice" value="<%= result[0].originalPrice %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail25" class="col-sm-2 control-label">商品ID</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputEmail25" name="item_id" value="<%= result[0].item_id %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail25" class="col-sm-2 control-label">act</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail25" name="act" value="<%= result[0].act %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail25" class="col-sm-2 control-label">isMobileEcard</label>
+        
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail25" name="isMobileEcard" value="<%= result[0].isMobileEcard %>">       
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="editor1" class="col-sm-2 control-label">商品简介</label>        
+                          <div class="col-sm-10">
+                              <textarea id="editor1" class="form-control" name="intro" rows="10" cols="80">
+                                  <%= result[0].intro %>
+                              </textarea>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="box-footer">
+                        <a href="/list/listSort?userType=<%= userType %>&sortType=1&limitNum=4&pageCode=0"class="btn btn-default">取消</a>
+                        <button type="submit" class="btn btn-info pull-right">上传</button>
+                    </div>
+                  </form>    
+          </section>   
+        <!-- /.content-wrapper -->
+      
+        <!-- Main Footer -->
+        <footer class="main-footer">
+          <!-- To the right -->
+          <div class="pull-right hidden-xs">
+            Anything you want
+          </div>
+          <!-- Default to the left -->
+          <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        </footer>
+      <script src="/javascripts/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+      <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="/lib/admin-lte/dist/js/app.min.js"></script>
+      <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+      <!-- Optionally, you can add Slimscroll and FastClick plugins.
+           Both of these plugins are recommended to enhance the
+           user experience. Slimscroll is required when using the
+           fixed layout. -->
+      <script>
+              $(function () {
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('editor1');
+                //bootstrap WYSIHTML5 - text editor
+                $(".textarea").wysihtml5();
+              });
+      </script>
+      </body>
+</html>

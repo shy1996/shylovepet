@@ -1,0 +1,23 @@
+@import "./../../lib/reset.scss";
+
+.newsdetail_wrap{
+    @incldue rect(100%,auto);
+    padding: 20px 130px;
+    box-sizing: border-box;
+    @include background-color(#fff);
+    border-top: 1px solid #eee;
+    .newsdetail_con{
+        h3{
+            @include text-align(center);
+            @include font-size(24px);
+            @include line-height(36px);
+        }
+        div{
+            @include rect(90%,auto);
+            margin: 0 auto;
+            img{
+                margin: 5px 0;
+            }
+        }
+    }
+}

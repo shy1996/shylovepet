@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/stylesheets/skin-blue.min.css">
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include header.ejs %>
+
+    <% include mune.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">更新新闻信息</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal" enctype="multipart/form-data" action="/news/updateNewAction?limitNum=4&pageCode=<%= pageCode %>" method="post">
+            <div class="box-body">
+              <div class="form-group">
+                <label for="newID" class="col-sm-2 control-label">新闻ID：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" readonly name="newID" placeholder="新闻ID" value="<%= result[0].newID %>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="newTitle" class="col-sm-2 control-label">新闻标题：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="newTitle" placeholder="新闻标题" value="<%= result[0].newTitle %>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="time" class="col-sm-2 control-label">发布时间：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control"  name="time" placeholder="发布时间" value="<%= result[0].time %>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="author" class="col-sm-2 control-label">新闻作者：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control"  name="author" placeholder="新闻作者" value="<%= result[0].author %>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="newUrl" class="col-sm-2 control-label">新闻图片：</label>
+
+                <div class="col-sm-8">
+                  <input type="file" class="form-control"  value="<%= result[0].newUrl %>" name="newUrl">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="editor" class="col-sm-2 control-label">新闻简介：</label>
+
+                <div class="col-sm-8">
+                  <textarea id="editor" name="editor" rows="10" class="form-control" placeholder="请输入宠物简介···" style="resize: none;" value="<%- result[0].editor %>">
+
+                    </textarea>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button type="button" class="btn btn-default" onclick="backNews('<%= pageCode %>')">
+                返回
+              </button>
+              <button type="submit" class="btn btn-info pull-right" id="savaMovieBtn">
+                保存
+              </button>
+            </div>
+            <!-- /.box-footer -->
+          </form>
+        </div>
+
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="pull-right hidden-xs">
+        Anything you want
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    </footer>
+    <!-- Control Sidebar -->
+    <% include active.ejs %>
+
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  
+  
+  </body>
+  <script src="/javascripts/jquery-2.2.3.min.js"></script>
+  <!-- Bootstrap 3.3.6 -->
+  <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src = "/lib/ckeditor/ckeditor.js"></script>
+  <script src="/lib/admin-lte/dist/js/app.min.js"></script>
+  <script>
+      $(function () {
+          // Replace the <textarea id="editor1"> with a CKEditor
+          // instance, using default configuration.
+          CKEDITOR.replace('editor1');
+          //bootstrap WYSIHTML5 - text editor
+          $(".textarea").wysihtml5();
+      });
+      function backNews(pageCode) {
+          window.location.href="/news/backNews?limitNum=4&pageCode="+pageCode;
+      }
+  </script>
+
+</html>

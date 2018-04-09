@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+  -->
+  <link rel="stylesheet" href="/stylesheets/skin-blue.min.css">
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <% include header.ejs %>
+
+    <% include mune.ejs %>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
+
+        <!-- Horizontal Form -->
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">添加<%= petListStr %>信息</h3>
+          </div>
+          <!-- /.box-header -->
+          <!-- form start -->
+          <form class="form-horizontal" enctype="multipart/form-data" action="/petList/addPetAction" method="post">
+            <div class="box-body">
+              <div class="form-group">
+                <label for="petListType" class="col-sm-2 control-label">类型:</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" readonly name="petListType" placeholder="petListType" value="<%= petListType %>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="petID" class="col-sm-2 control-label">宠物ID：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" readonly name="petID" value="<%= petID %>">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="owner" class="col-sm-2 control-label">现主人:</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="owner"  name="owner" placeholder="主人姓名" value="">
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="phone" class="col-sm-2 control-label">联系方式:</label>
+  
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="phone"  name="phone" placeholder="主人联系方式" value="">
+                  </div>
+                </div>
+              <div class="form-group">
+                <label for="age" class="col-sm-2 control-label">年龄：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="age"  name="age" placeholder="年龄" value="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sex" class="col-sm-2 control-label">性别：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="sex"  name="sex" placeholder="性别" value="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="area" class="col-sm-2 control-label">城市地区：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="area"  name="area" placeholder="城市地区" value="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="status" class="col-sm-2 control-label">领养状态：</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="status"  name="status" placeholder="领养状态" value="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="imgUrl" class="col-sm-2 control-label">图片：</label>
+
+                <div class="col-sm-8">
+                  <input type="file" class="form-control"  value="" name="imgUrl">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="editor" class="col-sm-2 control-label">宠物简介：</label>
+
+                <div class="col-sm-8">
+                  <textarea id="editor" name="editor" rows="10" class="form-control" placeholder="请输入宠物简介···" style="resize: none;">
+
+                    </textarea>
+                </div>
+              </div>
+
+                <% if(tip != ""){%>
+                  <p style="text-align: center;"><%= tip %></p>
+                <%  }%>
+
+            </div>
+
+            <!-- /.box-body -->
+            <div class="box-footer">
+              <button type="button" class="btn btn-default">
+                <a href="/petList?petListType=<%= petListType %>">返回</a>
+              </button>
+              <button type="submit" class="btn btn-info pull-right" id="savaMovieBtn">
+                保存
+              </button>
+            </div>
+            <!-- /.box-footer -->
+          </form>
+        </div>
+
+
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+      </footer>
+    
+      <!-- Control Sidebar -->
+      <% include active.ejs %>
+
+
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+  
+  
+  </body>
+  <script src="/javascripts/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+  <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+  <script src="/lib/admin-lte/dist/js/app.min.js"></script>
+
+</html>

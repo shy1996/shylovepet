@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+  <!-- icheck  -->
+  <link rel="stylesheet" href="http://adminlte.la998.com/plugins/iCheck/square/blue.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+  -->
+  <style>
+      body,html{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    #world{
+        z-index: -1;
+        position: absolute;
+      }
+    #login-box{
+        position: absolute;
+        z-index: 1000;
+        top:12%;
+        left:50%;
+        /* transform: translate(-50%,-50%); */
+      }
+  </style>
+  </head>
+  <body class="hold-transition login-page" style="background:url(/images/loginbg.jpg)">
+        <canvas id='world' style="background:url(/images/loginbg.jpg)"></canvas>
+        <div class="login-box" id="login-box">
+                <div class="login-logo">
+                  <h2 style="color: #fff;">登录</h2>
+                </div>
+                <!-- /.login-logo -->
+                <div class="login-box-body">             
+                  <form action="/users/loginAction" method="post">
+                    <div class="form-group has-feedback">
+                      <input type="text" class="form-control" name="username" placeholder="用户名">
+                      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                      <input type="password" class="form-control" name="password" placeholder="密码">
+                      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                          <label>
+                            <input type="checkbox"> 记住密码
+                          </label>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                      <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                  </form>
+                  <!-- /.social-auth-links  errInfo -->             
+                  <a href="#">忘记密码</a><br>
+                  <a style="color:red">
+                    <% if(errInfo) %>  
+                    <%= errInfo %></a>
+                </div>
+                <!-- /.login-box-body -->
+              </div>
+      <!-- REQUIRED JS SCRIPTS -->
+      
+      <!-- jQuery 2.2.3 -->
+      <script src="/javascripts/jquery-2.2.3.min.js"></script>
+      <!-- Bootstrap 3.3.6 -->
+      <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- AdminLTE App -->
+      <script src="http://adminlte.la998.com/plugins/iCheck/icheck.min.js"></script>
+      <script>
+            $(function () {
+              $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+              });
+            });
+          </script>
+      <!-- Optionally, you can add Slimscroll and FastClick plugins.
+           Both of these plugins are recommended to enhance the
+           user experience. Slimscroll is required when using the
+           fixed layout. -->
+           <script>
+              // One of my first <canvas> experiments, woop! :D
+        
+              var SCREEN_WIDTH = window.innerWidth;
+              var SCREEN_HEIGHT = window.innerHeight;
+        
+              var RADIUS = 70;
+        
+              var RADIUS_SCALE = 1;
+              var RADIUS_SCALE_MIN = 1;
+              var RADIUS_SCALE_MAX = 1.5;
+        
+              var QUANTITY = 25;
+        
+              var canvas;
+              var context;
+              var particles;
+        
+              var mouseX = SCREEN_WIDTH * 0.5;
+              var mouseY = SCREEN_HEIGHT * 0.5;
+              var mouseIsDown = false;
+        
+              function init() {
+        
+                  canvas = document.getElementById( 'world' );
+        
+                  if (canvas && canvas.getContext) {
+                      context = canvas.getContext('2d');
+                      // Register event listeners
+                      window.addEventListener('mousemove', documentMouseMoveHandler, false);
+                      window.addEventListener('mousedown', documentMouseDownHandler, false);
+                      window.addEventListener('mouseup', documentMouseUpHandler, false);
+                      document.addEventListener('touchstart', documentTouchStartHandler, false);
+                      document.addEventListener('touchmove', documentTouchMoveHandler, false);
+                      window.addEventListener('resize', windowResizeHandler, false);
+        
+                      createParticles();
+        
+                      windowResizeHandler();
+        
+                      setInterval( loop, 1000 / 60 );
+                  }
+              }
+        
+              function createParticles() {
+                  particles = [];
+        
+                  for (var i = 0; i < QUANTITY; i++) {
+                      var particle = {
+                          size: 1,
+                          position: { x: mouseX, y: mouseY },
+                          offset: { x: 0, y: 0 },
+                          shift: { x: mouseX, y: mouseY },
+                          speed: 0.001+Math.random()*0.04,
+                          targetSize: 1,
+                          fillColor: '#' + (Math.random() * 0x904040 + 0xaaaaaa | 0).toString(16),
+                          orbit: RADIUS*.5 + (RADIUS * .5 * Math.random())
+                      };
+        
+                      particles.push( particle );
+                  }
+              }
+        
+              function documentMouseMoveHandler(event) {
+                  mouseX = event.clientX - (window.innerWidth - SCREEN_WIDTH) * .5;
+                  mouseY = event.clientY - (window.innerHeight - SCREEN_HEIGHT) * .5;
+              }
+        
+              function documentMouseDownHandler(event) {
+                  mouseIsDown = true;
+              }
+        
+              function documentMouseUpHandler(event) {
+                  mouseIsDown = false;
+              }
+        
+              function documentTouchStartHandler(event) {
+                  if(event.touches.length == 1) {
+                      event.preventDefault();
+        
+                      mouseX = event.touches[0].pageX - (window.innerWidth - SCREEN_WIDTH) * .5;;
+                      mouseY = event.touches[0].pageY - (window.innerHeight - SCREEN_HEIGHT) * .5;
+                  }
+              }
+        
+              function documentTouchMoveHandler(event) {
+                  if(event.touches.length == 1) {
+                      event.preventDefault();
+        
+                      mouseX = event.touches[0].pageX - (window.innerWidth - SCREEN_WIDTH) * .5;;
+                      mouseY = event.touches[0].pageY - (window.innerHeight - SCREEN_HEIGHT) * .5;
+                  }
+              }
+        
+              function windowResizeHandler() {
+                  SCREEN_WIDTH = window.innerWidth;
+                  SCREEN_HEIGHT = window.innerHeight;
+        
+                  canvas.width = SCREEN_WIDTH;
+                  canvas.height = SCREEN_HEIGHT;
+              }
+        
+              function loop() {
+        
+                  if( mouseIsDown ) {
+                      RADIUS_SCALE += ( RADIUS_SCALE_MAX - RADIUS_SCALE ) * (0.02);
+                  }
+                  else {
+                      RADIUS_SCALE -= ( RADIUS_SCALE - RADIUS_SCALE_MIN ) * (0.02);
+                  }
+        
+                  RADIUS_SCALE = Math.min( RADIUS_SCALE, RADIUS_SCALE_MAX );
+    //------------------------------------原有颜色rgba(0,0,0,0.05)
+                 context.fillStyle = 'rgba(0,0,0,0.001)';
+                  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+                  /*var img = new Image();
+                  img.src = "/images/loginbg.jpg";
+                  img.onload = function(){
+                      context.drawImage(img, 0,0,context.canvas.width, context.canvas.height);
+                  }*/
+        
+                  for (i = 0, len = particles.length; i < len; i++) {
+                      var particle = particles[i];
+        
+                      var lp = { x: particle.position.x, y: particle.position.y };
+        
+                      // Rotation
+                      particle.offset.x += particle.speed;
+                      particle.offset.y += particle.speed;
+        
+                      // Follow mouse with some lag
+                      particle.shift.x += ( mouseX - particle.shift.x) * (particle.speed);
+                      particle.shift.y += ( mouseY - particle.shift.y) * (particle.speed);
+        
+                      // Apply position
+                      particle.position.x = particle.shift.x + Math.cos(i + particle.offset.x) * (particle.orbit*RADIUS_SCALE);
+                      particle.position.y = particle.shift.y + Math.sin(i + particle.offset.y) * (particle.orbit*RADIUS_SCALE);
+        
+                      // Limit to screen bounds
+                      particle.position.x = Math.max( Math.min( particle.position.x, SCREEN_WIDTH ), 0 );
+                      particle.position.y = Math.max( Math.min( particle.position.y, SCREEN_HEIGHT ), 0 );
+        
+                      particle.size += ( particle.targetSize - particle.size ) * 0.01;
+        
+                      if( Math.round( particle.size ) == Math.round( particle.targetSize ) ) {
+                          particle.targetSize = 1 + Math.random() * 2;
+                      }
+        
+                      context.beginPath();
+                      //如果没有设置颜色出现随机颜色
+                      context.fillStyle = particle.fillColor;
+                      context.strokeStyle = particle.fillColor;
+                      context.lineWidth = particle.size;
+                      context.moveTo(lp.x, lp.y);
+                      context.lineTo(particle.position.x, particle.position.y);
+                      context.stroke();
+                      context.arc(particle.position.x, particle.position.y, particle.size/2, 0, Math.PI*2, true);
+                      context.fill();
+                  }
+              }
+        
+              window.onload = init;
+            </script>
+      </body>
+</html>

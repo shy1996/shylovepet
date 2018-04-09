@@ -1,0 +1,67 @@
+ switch (petListType){
+        case 0:
+            petListStr = "牧羊犬";
+            break;
+        case 1:
+            petListStr = "金毛";
+            break;
+        case 2:
+            petListStr = "哈士奇";
+            break;
+        case 3:
+            petListStr = "拉布拉多犬";
+            break;
+        case 4:
+            petListStr = "吉娃娃";
+            break;
+        case 5:
+            petListStr = "博美";
+            break;
+        case 6:
+            petListStr = "松狮";
+            break;
+        case 7:
+            petListStr = "斗牛梗";
+            break;
+        case 8:
+            petListStr = "阿拉斯加";
+            break;
+        case 9:
+            petListStr = "泰迪";
+            break;
+        case 10:
+            petListStr = "其他犬种";
+            break;
+        case 11:
+            petListStr = "苏格兰摺耳猫";
+            break;
+        case 12:
+            petListStr = "日本短尾猫";
+            break;
+        case 13:
+            petListStr = "英国短毛猫";
+            break;
+        case 14:
+            petListStr = "美国短毛猫";
+            break;
+        case 15:
+            petListStr = "波斯猫";
+            break;
+        case 16:
+            petListStr = "卷毛猫";
+            break;
+        case 17:
+            petListStr = "布偶猫";
+            break;
+        case 18:
+            petListStr = "加菲猫";
+            break;
+        case 19:
+            petListStr = "缅甸猫";
+            break;
+        case 20:
+            petListStr = "暹罗猫";
+            break;
+        case 21:
+            petListStr = "其他猫种";
+            break;

@@ -1,0 +1,39 @@
+@import './../../../lib/reset.scss';
+
+.lunbobox{
+    position:relative;
+    .banner_wrap{
+        @include rect(100%, 468px);
+        .slick-list{
+            @include rect(100%, 100%);
+            .slick-track{
+                @include rect(100%, 100%);
+                .banner_box{
+                @include rect(100%, 100%);
+                    .banner_bg{
+                        @include rect(100%, 100%);
+                        img{
+                            @include rect(100%, 100%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .searchbanner{
+        position: absolute;
+        bottom: -4px;
+        left: 50px;
+        padding: 0 50px;
+        @include rect(1273px, 118px);
+        @include line-height(100px);
+        background: url(/images/searchbg_03.png) no-repeat left center;
+        .searchtitle{
+            @include text-align(center);
+        }
+        .searchbtn{
+            text-align: right;
+        }
+    }
+}
+

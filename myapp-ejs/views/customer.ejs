@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>
+			<%= title %>
+		</title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="/lib/admin-lte/dist/css/AdminLTE.min.css">
+		<!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect.
+  -->
+		<link rel="stylesheet" href="/stylesheets/skin-blue.min.css">
+
+	</head>
+
+	<body class="hold-transition skin-blue sidebar-mini">
+		<div class="wrapper">
+
+			<!-- Main Header -->
+			<% include header.ejs %>
+			<!-- Left side column. contains the logo and sidebar -->
+			<% include mune.ejs %>
+
+			<!-- Content Wrapper. Contains page content -->
+			<div class="content-wrapper">
+				<!-- Content Header (Page header) -->
+				<section class="content-header">
+					<div class="box">
+						<div class="box-header with-border">
+							<h3 class="box-title">客户列表</h3>
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+							<table class="table table-bordered">
+								<tr>
+									<th style="width: 10px">序号</th>
+									<th style="width: 100px">头像</th>
+									<th style="width: 50px">昵称</th>
+									<th style="width: 50px">账号</th>
+									<th style="width: 200px">信息</th>
+									<th style="width: 20px">操作</th>
+								</tr>
+								<% for(var i=0;i<result.length;i++){ %>
+								<tr>
+									<td>
+										<%= i+1 %>.</td>
+									<td>
+										<img style="width:50px" src="<%= result[i].portrait %>"/>
+										
+									</td>
+									<td>
+										<%= result[i].nickname %>
+									</td>
+									<td>
+										<%= result[i].userID %>
+									</td>
+									<td>
+										<%= result[i].information %>
+									</td>
+									<td>
+										<button class="btn btn-xs btn-danger" onclick="deleteCustomer('<%- result[i].userID %>')">
+                            <span class="glyphicon glyphicon-trash"></span>删除
+                          </button>
+									</td>
+								</tr>
+								<% } %>
+							</table>
+						</div>
+						<!-- /.box-body -->
+						<div class="box-footer clearfix">
+							<ul class="pagination pagination-sm no-margin pull-left">
+								<li>总条数为：
+									<%= allNum %>
+								</li>
+							</ul>
+							<ul class="pager">
+								<li>
+									<a href="#" onclick="toPage('prev','<%= totalPages %>')">上一页</a>
+								</li>
+								<li>
+									<input type="number" step="1" min="0" id="num" onchange="toPageNumFn()" max="<%= totalPages %>" value="<%= pageCode*1 %>" style="width: 50px" /> /
+									<%= totalPages - 1 %>
+								</li>
+								<li>
+									<a href="#" onclick="toPage('next','<%= totalPages %>')">下一页</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="breadcrumb">
+						<button class="btn btn-sm btn-default pull-right"> 导入数据</button>
+						<button class="btn btn-sm btn-info pull-right"> 导出数据</button>
+					</div>
+				</section>
+
+				<!-- Main content -->
+				<section class="content">
+
+					<!-- Your Page Content Here -->
+
+				</section>
+				<!-- /.content -->
+			</div>
+			<!-- /.content-wrapper -->
+
+			<!-- Main Footer -->
+			<footer class="main-footer">
+				<!-- To the right -->
+				<div class="pull-right hidden-xs">
+					Anything you want
+				</div>
+				<!-- Default to the left -->
+				<strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+			</footer>
+
+			<!-- Control Sidebar -->
+			<% include active.ejs %>
+			<!-- /.control-sidebar -->
+			<!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+			<div class="control-sidebar-bg"></div>
+		</div>
+		<!-- ./wrapper -->
+
+		<!-- REQUIRED JS SCRIPTS -->
+
+		<!-- jQuery 2.2.3 -->
+		<script src="/javascripts/jquery-2.2.3.min.js"></script>
+		<!-- Bootstrap 3.3.6 -->
+		<script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="/lib/admin-lte/dist/js/app.min.js"></script>
+
+		<!-- Optionally, you can add Slimscroll and FastClick plugins.
+           Both of these plugins are recommended to enhance the
+           user experience. Slimscroll is required when using the
+           fixed layout. -->
+
+	</body>
+	<script>
+		function deleteCustomer(userID) {
+			window.location.href = "/customer/deleteCustomer?userID=" + userID;
+		}
+
+		function toPageNumFn(){
+				var pageCode = $("#num").val();
+				window.location.href = "/customer?limitNum=4&pageCode=" + pageCode;
+			}
+
+			function toPage(type,totalPages) {
+				var pageCode = $("#num").val();
+				if(type == "next") {
+					if(pageCode == totalPages - 1) {
+						pageCode = totalPages - 1;
+						return;
+					} else {
+						pageCode++;
+					}
+				} else {
+					if(pageCode == 0) {
+						pageCode = 0;
+						return;
+					} else {
+						pageCode--;
+					}
+				}
+				$("#num").val(pageCode); //点击上一页或者下一页时，输入框的值跟着改变
+				window.location.href = "/customer?limitNum=4&pageCode=" + pageCode;
+			}
+	</script>
+
+</html>
